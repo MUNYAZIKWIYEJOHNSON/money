@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hitamo Uruhare</title>
+<style>
+:root{--accent:#4e61cc;}
+body{
+  font-family:Poppins,sans-serif;
+  background:#253046;
+  margin:0;padding:20px;
+ 
+  animation:fade 0.7s ease;
+  
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.card{
+  background:#fff;padding:30px;border-radius:14px;width:100%;max-width:380px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
+  text-align:center;
+  animation:slide 0.6s ease;
+}
+@keyframes slide{from{transform:translateY(25px);opacity:0}to{transform:translateY(0);opacity:1}}
+button{
+  width:100%;padding:14px;background:var(--accent);border:none;color:#fff;
+  border-radius:8px;margin-top:15px;font-size:16px;font-weight:600;
+  cursor:pointer;transition:0.3s;
+}
+button:hover{transform:scale(1.03);opacity:0.9}
+
+.footer {
+  display: fixed;
+  justify-content: space-between;
+  padding: 20px;
+  border-top: 2px solid #ccc;
+  margin-top: 40px;
+  text-align: fixed;
+}
+.footer div {
+  width: 30%;
+  display: inline;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+  margin-top:20px;
+ 
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Welcome 👋</h2>
+  <p>Select your option</p>
+
+  <button onclick="go('investor')">Investor</button>
+  <button onclick="go('owner')">Submit Your Project</button>
+</div>
+<footer style="background:#011442; padding:20px; margin-top:30px; border-radius:12px 12px 0 0; text-align:center; color:rgba(249,250,252,0.8); ">
+
+  <div class="footer-container">
+
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <strong>RWF Market</strong> – Gukurikirana isoko ry’imari mu Rwanda no mu bindi bihugu.<br>
+      📍 Rwanda | 📧 Email: munyazikwiyejohnson237@gmail.com | 🔔 Real-time Market Alerts<br>
+      <ul>
+     <li> <a href="" style="color:#fff;">Facebook</a></li><br>
+      <li><a href="" style="color:#f6f8f6; margin:0 6px;">Twitter</a></li><br>
+      <li><a href="" style="color:#fff; margin:0 6px;">Instagram</a></li><br>
+      </ul>
+    </div>
+
+    <div class="quick-links">
+      <h3>Quick Links</h3>
+      <ul>
+      <li><a href="https://rse.rw" style="color:#fff; margin:0 6px;">Rwanda Stock Exchange</a></li><br>
+      <li><a href="https://WWW.bnr.rw" style="color:#fff; margin:0 6px;">Nation Bank of Rwanda</a></li><br>
+      <li><a href="https://WWW.rnit.rw" style="color:#fff; margin:0 6px;">RNIT</a></li><br>
+      <li><a href="https://fininclusion.bnr.rw" style="color:#fff; margin:0 6px;">Financial Dashboard</a></li><br>
+      </ul>
+    </div>
+
+    <div class="partners">
+      <h3>Our Partners</h3>
+      <ul>
+      <li><a href="https://bpr.rw" style="color:#fff; margin:0 6px;">BPR</a></li><br>
+      <li><a href="https://bk.rw" style="color:#fff; margin:0 6px;">BK</a></li><br>
+      <li><a href="https://kifc.rw" style="color:#fff; margin:0 6px;">KIFC</a></li><br>
+      </ul>
+    </div>
+
+  </div>
+
+  <p style="margin-top:15px;">© 2026 RWF Market. All rights reserved.</p>
+
+</footer>
+
+<style>
+.footer-container {
+  display: flex;
+  justify-content: space-down;
+  padding: 10px;
+  text-align: left;
+  flex-wrap: wrap;
+
+}
+.footer-container div {
+  width: 30%;
+  min-width: 250px;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .footer-container div {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+</style>
+<script>
+function go(role) {
+  if (role === "owner") {
+    window.location.href = "son.html";
+  } else if (role === "investor") {
+    window.location.href = "a.html";
+  }
+}
+</script>
+
+</body>
+</html>

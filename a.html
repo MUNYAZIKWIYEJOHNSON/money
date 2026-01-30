@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investor – Tanga amakuru</title>
+
+<style>
+:root{
+  --accent:#4e61cc;
+  --bg:#292e41;
+  --card:#ffffff;
+  --text:#2d3436;
+}
+body{
+  font-family:Poppins,sans-serif;
+  background:#3e4666;
+  margin:0;padding:20px;
+  display:flex;justify-content:center;align-items:center;height:100vh;
+  animation:fade .6s ease;
+}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+.box{
+  background:#fff;padding:25px;border-radius:12px;width:100%;max-width:420px;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  animation:slide .5s ease;
+}
+@keyframes slide{from{transform:translateY(18px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+label{font-size:15px;font-weight:500;display:block;margin-top:12px}
+
+input, select, textarea{
+  width:100%;padding:12px;border:1.5px solid #ddd;border-radius:8px;margin-top:6px;outline:none;
+  transition:.3s;font-family:inherit;
+}
+
+textarea{resize:none;height:90px}
+
+input:focus, select:focus, textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 6px rgba(78,97,204,.18)
+}
+
+button{
+  width:100%;padding:13px;background:var(--accent);border:none;color:#fff;border-radius:8px;
+  margin-top:18px;font-weight:600;cursor:pointer;transition:.3s;
+}
+button:hover{opacity:.9;transform:scale(1.02)}
+
+#invMsg{
+  margin-top:15px;
+  font-weight:600;
+  color:#333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h3>Investor – Form</h3>
+
+  <form id="invForm">
+
+    <label>Your Name</label>
+    <input type="text" id="name" placeholder="Example: Munyazikwiye Johnson" required>
+
+    <label>Your Email</label>
+    <input type="email" id="email" placeholder="example@mail.com" required>
+
+    <label>Phone Number</label>
+    <input type="tel" id="phone" placeholder="078XXXXXXX" required>
+
+    <label>Your Experience Level</label>
+    <select id="experience" required>
+      <option value="">-- Select Experience --</option>
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+    </select>
+
+    <label>Why do you want to invest?</label>
+    <textarea id="reason" placeholder="Explain your reason…" required></textarea>
+
+    <label>Project Category</label>
+  <select id="category" required>
+    <option value="">-- Select Category --</option>
+    <option>Technology</option>
+    <option>Agriculture</option>
+    <option>Education</option>
+    <option>Health</option>
+    <option>Business</option>
+    <option>Others</option>
+  </select>
+
+    <label>What do you want to invest in?</label>
+    <input type="text" id="interest" placeholder="example: Farming, Technology..." required>
+
+    <label>Amount you plan to invest (RWF)</label>
+    <input type="number" id="amount" placeholder="example: 200000" required>
+
+    <button type="submit">Send</button>
+
+  </form>
+
+  <div id="invMsg"></div>
+</div>
+
+<script>
+const companyInfo = {
+  "Technology": "Ikoranabuhanga",
+  "Agriculture": "Ubuhinzi",
+  "Education": "Uburezi",
+  "Health": "Ubuzima",
+  "Business": "Ubucuruzi",
+  "Others": "Ibindi"
+};
+
+document.getElementById("invForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const experience = document.getElementById("experience").value;
+  const reason = document.getElementById("reason").value;
+  const amount = document.getElementById("amount").value;
+  const category = document.getElementById("category").value;
+
+  const message = `
+  Murakoze ${name}!<br>
+  Twakiriye gahunda yawe yo gushora <b>${amount} RWF</b> muri <b>${companyInfo[category]}</b>.<br>
+  Experience yawe: <b>${experience}</b>.<br>
+  Impamvu yawe: ${reason}.<br>
+  Tuzakumenyesha vuba kuri <b>${email}</b> cyangwa kuri telefone <b>${phone}</b>.
+  `;
+
+  document.getElementById("invMsg").innerHTML = message;
+});
+</script>
+
+</body>
+</html>

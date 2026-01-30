@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanga Umushinga</title>
+<style>
+:root{
+  --accent:#4e61cc;
+  --bg:#292e41;
+  --card:#ffffff;
+  --text:#2d3436;
+}
+body{
+  font-family:Poppins,sans-serif;
+  background:#3e4666;
+  margin:0;padding:20px;
+  display:flex;justify-content:center;align-items:center;height:100%;
+  animation:fade .6s ease;
+}
+.container{
+  background:var(--card);
+  width:100%;
+  max-width:500px;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+h2{
+  text-align:center;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+label{
+  font-size:15px;
+  font-weight:500;
+  display:block;
+  margin-top:12px;
+}
+input, textarea, select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border:1.5px solid #dfe6e9;
+  border-radius:8px;
+  font-size:15px;
+  outline:none;
+  transition:0.3s;
+}
+input:focus, textarea:focus, select:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 5px rgba(78,97,204,0.2);
+}
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+button{
+  width:100%;
+  background:var(--accent);
+  border:none;
+  padding:14px;
+  color:white;
+  font-size:16px;
+  border-radius:8px;
+  margin-top:20px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+button:hover{
+  opacity:0.85;
+}
+.success{
+  background:#00b894;
+  color:white;
+  padding:12px;
+  text-align:center;
+  border-radius:8px;
+  margin-top:15px;
+  display:none;
+}
+
+.footer {
+  display: fixed;
+  justify-content: space-between;
+  padding: 20px;
+  border-top: 2px solid #ccc;
+  margin-top: 40px;
+  text-align: fixed;
+}
+.footer div {
+  width: 30%;
+  display: inline;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+  margin-top:20px;
+ 
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Submit a Secure Project</h2>
+ 
+<form id="projectForm">
+
+  <label>Your Name</label>
+  <input type="text" id="name" placeholder="Example: Munyazikwiye Johnson" required>
+
+  <label>Your Email</label>
+  <input type="email" id="email" placeholder="example@mail.com" required>
+
+  <label>Phone Number</label>
+  <input type="tel" id="phone" placeholder="078XXXXXXX" required>
+
+  <label>Your Experience Level</label>
+  <select id="experience" required>
+    <option value="">-- Select Experience --</option>
+    <option>Beginner</option>
+    <option>Intermediate</option>
+    <option>Advanced</option>
+  </select>
+
+  <label>Why are you submitting this project?</label>
+  <textarea id="reason" placeholder="Explain your motivation…" required></textarea>
+
+  <label>Project Title</label>
+  <input type="text" id="projectTitle" placeholder="Example: Smart Farm System" required>
+
+  <!-- //// -->
+
+  <label>Describe Your Project</label>
+  <textarea id="description" placeholder="Write a detailed description…" required></textarea>
+
+  <label>Budget (RWF)</label>
+  <input type="number" id="budget" placeholder="Example: 500000" required>
+
+  <label>Project Timeline</label>
+  <input type="text" id="timeline" placeholder="Example: 3 months" required>
+
+  <label>Project File (PDF/DOCX)</label>
+  <input type="file" id="fileUpload" accept=".pdf,.docx">
+
+  <button type="submit">Submit Project</button>
+</form>
+
+<div id="responseMsg" style="margin-top:20px;font-weight:bold;"></div>
+
+<script>
+const companyInfo = {
+  "Technology": "Ikoranabuhanga",
+  "Agriculture": "Ubuhinzi",
+  "Education": "Uburezi",
+  "Health": "Ubuzima",
+  "Business": "Ubucuruzi",
+  "Others": "Ibindi"
+};
+
+document.getElementById("projectForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const experience = document.getElementById("experience").value;
+  const reason = document.getElementById("reason").value;
+  const amount = document.getElementById("budget").value;
+  const category = document.getElementById("category").value;
+
+  const message = `
+  Murakoze ${name}!<br>
+  Twakiriye gahunda yawe yumushinga <b>${amount} RWF</b> muri <b>${companyInfo[category]}</b>.<br>
+  Experience yawe: <b>${experience}</b>.<br>
+  Impamvu yawe: ${reason}.<br>
+  Tuzakumenyesha vuba kuri <b>${email}</b> cyangwa kuri telefone <b>${phone}</b>.
+  `;
+
+  document.getElementById("responseMsg").innerHTML = message;
+});
+</script>
+
+
+</body>
+</html>
